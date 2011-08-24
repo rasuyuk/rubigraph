@@ -32,47 +32,14 @@ module Rubigraph
       end
     end
 
-    def color=(c)
-      set_attribute('color', c)
+    def method_missing(name, *args)
+      attribute = name.to_s
+      if attribute =~ /=$/
+          attribute.chop!
+      end
+      set_attribute(attribute, args)
     end
 
-    def colour=(c)
-      self.color=(c)
-    end
-
-    def shape=(s)
-      set_attribute('shape', s)
-    end
-      
-    def shapedetail=(d)
-      set_attribute('shapedetail', d)
-    end
-
-    def label=(l)
-      set_attribute('label', l)
-    end
-
-    def labelpos=(p)
-      set_attribute('labelpos', p)
-    end
-
-    def size=(s)
-      set_attribute('size', s)
-    end
-
-    def fontcolor=(c)
-      set_attribute('fontcolor', c)
-    end
-
-    def fontfamily=(f)
-      # TODO: should assert 'Helvetica' | 'Times Roman'
-      set_attribute('fontfamily', f)
-    end
-
-    def fontsize=(s)
-      # TODO: should assert 10, 12, 18. 24
-      set_attribute('fontsize', s)
-    end
   end # Vertex
 
   # Edge between Vertexes

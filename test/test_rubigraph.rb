@@ -11,6 +11,15 @@ class RubigraphTest < Test::Unit::TestCase
   def test_vertex
     v = Rubigraph::Vertex.new
     v.set_attribute('size', '2.0')
+    v.shape = "sphere"
+    v.label = "label"
+    v.visible = false
+    v.shapedetail = "10"
+    v.labelpos = "10"
+    v.size = 2.0
+    v.fontcolor = "#1f1f1f"
+    v.fontfamily = "Times Roman"
+    v.fontsize = 10
     v.remove
   end
 
